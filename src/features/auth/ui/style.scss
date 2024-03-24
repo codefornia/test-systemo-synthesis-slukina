@@ -1,0 +1,52 @@
+$auth-modal-bg: #250e36;
+$auth-modal-border: #4b2964;
+$auth-modal-bg-after: #000000;
+
+.authorization_modal {
+  box-sizing: border-box;
+  position: absolute;
+  width: 434px;
+  height: 256px;
+  top: calc(50% - 126px);
+  left: calc(50% - 217px);
+  background-color: $auth-modal-bg;
+  border: 1px solid $auth-modal-border;
+  border-radius: 4px;
+  cursor: default;
+  padding: 50px 47px 45px 47px;
+  z-index: 20;
+}
+
+.authorization_container:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background-color: $auth-modal-bg-after;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &_closed {
+    position: absolute;
+    cursor: pointer;
+    top: -38px;
+    right: -32px;
+    width: 15px;
+    height: 15px;
+    background-color: transparent;
+    border: none;
+  }
+}
+
+input.auth-form_input {
+  margin-bottom: 16px;
+  width: 100%;
+}

@@ -1,0 +1,99 @@
+$dice-bg: #ffffff;
+$point-bg: #000000;
+
+$border-radius: 5px;
+$duration: 2s;
+$face-size: 92px;
+$point-size: 15px;
+$point-position: 23.2px;
+$point-position-6: 18.2px;
+$face-length: 92px;
+
+.dice {
+  margin: 0 auto;
+  position: relative;
+  width: $face-size;
+  aspect-ratio: 1;
+  border-radius: $border-radius;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50% ($face-size * -0.5);
+  transform: rotateX(180deg) rotateY(180deg);
+  transition: transform $duration ease-in-out;
+}
+
+.point {
+  position: absolute;
+  width: $point-size;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  align-self: center;
+  justify-self: center;
+  background: $point-bg;
+  box-shadow: inset 5px 0 10px #222;
+}
+
+.point-top {
+  top: $point-position;
+}
+
+.point-middle {
+  top: calc(($face-size - $point-size) / 2);
+}
+
+.point-bottom {
+  bottom: $point-position;
+}
+
+.point-left {
+  left: $point-position;
+}
+
+.point-center {
+  left: calc(($face-size - $point-size) / 2);
+}
+
+.point-right {
+  right: $point-position;
+}
+
+.face {
+  position: absolute;
+  background: $dice-bg;
+  width: $face-size;
+  aspect-ratio: 1;
+  border-radius: $border-radius;
+  transform: rotateX(0deg) rotateY(180deg);
+  transform-origin: 50% 50% ($face-size * -0.5);
+}
+
+.face:nth-child(1) {
+  transform: rotateY(0deg);
+}
+
+.face:nth-child(2) {
+  transform: rotateY(90deg);
+}
+
+.face:nth-child(3) {
+  transform: rotateY(180deg);
+
+  & .point-top {
+    top: $point-position-6;
+  }
+
+  & .point-bottom {
+    bottom: $point-position-6;
+  }
+}
+
+.face:nth-child(4) {
+  transform: rotateY(270deg);
+}
+
+.face:nth-child(5) {
+  transform: rotateX(90deg);
+}
+
+.face:nth-child(6) {
+  transform: rotateX(270deg);
+}

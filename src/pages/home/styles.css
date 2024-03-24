@@ -1,0 +1,9 @@
+.homepage {
+  margin-top: 50px;
+}
+
+@media (min-width: 450px) {
+  .homepage {
+    margin-top: 8px;
+  }
+}

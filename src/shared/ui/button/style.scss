@@ -1,0 +1,62 @@
+$button-default-bg: #643f82;
+$button-default-border: #9159be;
+$button-hover-bg: #8151a8;
+$button-hover-border: #ab69e2;
+$button-active-bg: #f6a200;
+$button-active-border: #d77400;
+$button-submit-default-bg: #37ac00;
+$button-submit-default-border: #55f30a;
+$button-submit-hover-bg: #41ca00;
+$button-submit-hover-border: #7dff3f;
+$button-submit-disabled-bg: #3f5a35;
+$button-submit-disabled-border: #486f38;
+$button-primary-text-color: #ffffff;
+
+@mixin button-primary {
+  box-sizing: border-box;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  height: 44px;
+  font-size: 16px;
+}
+
+@mixin button-style {
+  @include button-primary;
+
+  background-color: $button-default-bg;
+  border-bottom: 1px solid $button-default-border;
+  color: $button-primary-text-color;
+
+  &:hover {
+    background-color: $button-hover-bg;
+    border-color: $button-hover-border;
+  }
+
+  &:active {
+    background-color: $button-active-bg;
+    border-color: $button-active-border;
+  }
+}
+
+.button {
+  @include button-style;
+}
+
+.button-submit {
+  @include button-primary;
+  height: 40px;
+  background-color: $button-submit-default-bg;
+  border-bottom: 1px solid $button-submit-default-border;
+
+  &:hover {
+    background-color: $button-submit-hover-bg;
+    border-color: $button-submit-hover-border;
+  }
+
+  &:disabled {
+    background-color: $button-submit-disabled-bg;
+    border-color: $button-submit-disabled-border;
+  }
+}

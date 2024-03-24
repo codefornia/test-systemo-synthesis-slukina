@@ -1,0 +1,184 @@
+$dice-container-border: #42165d;
+$button-active-bg: #f6a200;
+$button-active-border: #d77400;
+$button-hover-bg: #8151a8;
+$button-hover-border: #ab69e2;
+$primary-text-color: #ffffff;
+$button-primary-text-color: #ffffff;
+$button-default-bg: #643f82;
+$button-default-border: #9159be;
+
+.game_container {
+  max-width: 338px;
+  margin: 0 auto;
+}
+
+.game_title-container {
+  display: flex;
+  justify-content: flex-end;
+  min-height: 60px;
+  margin-bottom: 59px;
+  flex-direction: column;
+}
+
+.game_title {
+  text-align: center;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.game_result {
+  text-align: center;
+}
+
+.pass-through * {
+  opacity: 0.5;
+
+  & .dice .face:not(:first-child) {
+    opacity: 0;
+  }
+}
+
+@media (min-width: 450px) {
+  .pass-through:after {
+    top: 60px;
+  }
+}
+
+.pass-through:after {
+  content: '';
+  position: absolute;
+  top: 160px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  opacity: 0.5;
+}
+
+.game_dice-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 130px;
+  border: 2px solid $dice-container-border;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.rate_form {
+  padding-top: 50px;
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  grid-gap: 19px;
+}
+
+.rate_legend {
+  margin-bottom: 5px;
+}
+
+.rate_fieldset {
+  padding: 0;
+  border: none;
+  font-size: 14px;
+
+  &--table {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 8px;
+  }
+}
+
+.rate_select {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+@mixin button-primary {
+  box-sizing: border-box;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  height: 44px;
+}
+
+@mixin button-style {
+  @include button-primary;
+
+  background-color: $button-default-bg;
+  border-bottom: 1px solid $button-default-border;
+  color: $button-primary-text-color;
+
+  &:hover {
+    background-color: $button-hover-bg;
+    border-color: $button-hover-border;
+  }
+
+  &:active {
+    background-color: $button-active-bg;
+    border-color: $button-active-border;
+  }
+}
+
+.rate-form_radio_btn {
+  color: $primary-text-color;
+  text-align: center;
+
+  &--long {
+    grid-column: 1 / 3;
+    position: relative;
+    text-align: left;
+    height: 40px;
+  }
+
+  & input[type='radio'] {
+    display: none;
+  }
+
+  & label {
+    @include button-style;
+    padding: 12px 16px;
+    border-radius: 6px;
+    user-select: none;
+    width: 100%;
+
+    &:hover {
+      background: $button-hover-bg;
+      border-color: $button-hover-border;
+    }
+  }
+
+  & input[type='radio']:checked + label {
+    background: $button-active-bg;
+    border-color: $button-active-border;
+  }
+  & input[type='text'] {
+    position: absolute;
+    right: 16px;
+    top: 10px;
+    border: none;
+    border-radius: 4px;
+    width: 27px;
+    height: 22px;
+    text-align: center;
+  }
+
+  & input[type='radio']:disabled + label {
+    background: #efefef;
+    color: #666;
+  }
+}
+
+.specific-number {
+  padding: 7px 5px 4px 5px;
+}
+
+label.specific-number {
+  display: none;
+}
